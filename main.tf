@@ -1,9 +1,7 @@
 module "vpc" {
-    source = "../terraform-aws-vpc"
-    # vpc_cidr = " 10.0.0.0/16"
-    # project_name = "roboshop"
-    # environment = "dev"
-
+    
+    source = "git::https://github.com/jeminkalakoti/terraform-aws-vpc.git?ref=main"
+    
     #VPC
     vpc_cidr = var.vpc_cidr
     project_name = var.project_name
@@ -18,10 +16,9 @@ module "vpc" {
 
     # database subnets
     database_subnet_cidrs = var.database_subnet_cidrs
+
+    is_peering_required = true
 }
 
-# data "aws_availability_zones" "available" {
-#   state = "available"
-# }
 
 
